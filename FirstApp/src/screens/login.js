@@ -8,7 +8,7 @@ import {
   Alert,
   ActivityIndicator,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {TextInput} from 'react-native-gesture-handler';
 import {call} from 'react-native-reanimated';
 import Spinner from 'react-native-loading-spinner-overlay';
@@ -44,6 +44,9 @@ class login extends Component {
         itemId: name[0],
         otherParam: 'anything you want here',
       });
+
+      // Access the postId and otherParam via Destructuring assignment for next class
+      // const {itemId, otherParam} = this.props.route.params;
     } else {
       alert('Response failed with error code:' + response.status);
     }
