@@ -63,7 +63,7 @@ class home extends Component {
 
   render() {
     // Access the postId and otherParam via Destructuring assignment
-    const {itemId, otherParam} = this.props.route.params;
+   // const {itemId, otherParam} = this.props.route.params;
     return (
       <SafeAreaView style={styles.container}>
         <FlatList

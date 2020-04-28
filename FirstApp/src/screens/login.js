@@ -40,7 +40,7 @@ class login extends Component {
     if (response.ok) {
       const responsejson = await response.json();
       const name = responsejson.map((text) => text.name);
-      this.props.navigation.navigate('Home', {
+      this.props.navigation.navigate('Drawer', {
         itemId: name[0],
         otherParam: 'anything you want here',
       });
