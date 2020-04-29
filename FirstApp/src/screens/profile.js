@@ -1,29 +1,37 @@
 //import liraries
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
-// create a component
-class Profile extends Component {
-  constructor(props) {
-    super(props);
+// create a  functional component
+const Profile = ({navigation}) => {
+  
+  navigationOptions: () => ({
+    headerTitle: <FormattedMessage id="title" />
+  })
 
-    console.warn(props.navigation);
-  }
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Profile test</Text>
-      </View>
-    );
-  }
-}
+  return (
+    <View style={{justifyContent: 'center'}}>
+      <TouchableOpacity
+        style={styles.touchable}
+        onPress={() => navigation.navigate('Login')}>
+        <Text
+          style={{
+            color: 'red',
+            fontSize: 25,
+          }}>
+          {' '}
+          Go to Login
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 // define your styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+
     backgroundColor: '#FFFFFF',
   },
 });

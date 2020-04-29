@@ -40,10 +40,12 @@ class login extends Component {
     if (response.ok) {
       const responsejson = await response.json();
       const name = responsejson.map((text) => text.name);
-      this.props.navigation.navigate('Drawer', {
+      this.props.navigation.navigate(
+        'Drawer' /**{
         itemId: name[0],
         otherParam: 'anything you want here',
-      });
+      }**/,
+      );
 
       // Access the postId and otherParam via Destructuring assignment for next class
       // const {itemId, otherParam} = this.props.route.params;

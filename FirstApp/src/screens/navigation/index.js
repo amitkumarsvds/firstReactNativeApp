@@ -9,7 +9,7 @@ import Profile from '../profile';
 import login from '../login';
 import StackNavigationDrawer from '../navigationdrawer';
 import {Image, Alert, TouchableOpacity, View} from 'react-native';
-
+import Header from '../header';
 import {useNavigation, DrawerActions} from '@react-navigation/native';
 const Stack = createStackNavigator();
 
@@ -28,25 +28,19 @@ const HeaderLeft = () => {
   );
 };
 
+
 function stackNavigation() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator  >
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen
-        name="Login"
-        component={Login}
-        options={{
-          title: 'My home',
-          headerStyle: {backgroundColor: 'green'},
-          headerTintColor: 'white',
-        }}
-      />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen
         name="Drawer"
         component={StackNavigationDrawer}
         options={({}) => ({
-          title: 'Profile 123',
+          title: 'Home',
           headerStyle: {backgroundColor: 'pink'},
           headerTintColor: 'white',
           headerBackTitle: null,
