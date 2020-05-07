@@ -15,7 +15,7 @@ const Header = ({navigation}) => {
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={{...styles.touchable, marginTop:10}}
+        style={{...styles.touchable, marginTop: 10}}
         onPress={() => navigation.navigate('Profile')}>
         <Text style={{color: 'red', fontSize: 25}}> Profile</Text>
       </TouchableOpacity>

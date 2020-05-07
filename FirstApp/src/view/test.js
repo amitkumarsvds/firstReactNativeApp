@@ -1,7 +1,7 @@
 //import liraries
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Button, TouchableOpacity} from 'react-native';
-import CustomButton from './CustomButton';
+import CustomButton from '../CustomUtils/CustomButton'
 // create a component
 class Test extends Component {
   constructor(props) {

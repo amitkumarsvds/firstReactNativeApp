@@ -1,16 +1,13 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from '../home';
-import Splash from '../splash';
-import Login from '../login';
-import Test from '../test';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import Profile from '../profile';
-import login from '../login';
-import StackNavigationDrawer from '../navigationdrawer';
+import StackNavigationDrawer from './drawernavigation';
 import {Image, Alert, TouchableOpacity, View} from 'react-native';
-import Header from '../header';
 import {useNavigation, DrawerActions} from '@react-navigation/native';
+import login from '../../view/login';
+import home from '../../view/home';
+import splash from '../../view/splash';
+import Profile from '../../view/profile';
+import homedetail from '../../view/homedetail';
 const Stack = createStackNavigator();
 
 const HeaderLeft = () => {
@@ -28,14 +25,15 @@ const HeaderLeft = () => {
   );
 };
 
-
 function stackNavigation() {
   return (
-    <Stack.Navigator  >
-      <Stack.Screen name="Splash" component={Splash} />
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Login" component={Login} />
+    <Stack.Navigator>
+      <Stack.Screen name="Splash" component={splash} />
+      <Stack.Screen name="Home" component={home} />
+      <Stack.Screen name="Login" component={login} />
       <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Homedetail" component={homedetail} />
+      
       <Stack.Screen
         name="Drawer"
         component={StackNavigationDrawer}

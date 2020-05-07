@@ -4,8 +4,9 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Profile from './profile';
-import Test from './test';
 import home from './home';
+import update from '../view/update';
+import localStorage from '../view/localstorage';
 
 const Tab = createMaterialBottomTabNavigator();
 const MainTabScreen = () => (
@@ -23,7 +24,7 @@ const MainTabScreen = () => (
     />
     <Tab.Screen
       name="Notifications"
-      component={Test}
+      component={update}
       options={{
         tabBarLabel: 'Updates',
         tabBarColor: '#1f65ff',
@@ -45,9 +46,9 @@ const MainTabScreen = () => (
     />
     <Tab.Screen
       name="Explore"
-      component={Test}
+      component={localStorage}
       options={{
-        tabBarLabel: 'Explore',
+        tabBarLabel: 'Local',
         tabBarColor: '#d02860',
         tabBarIcon: ({color}) => (
           <MaterialCommunityIcons name="home" color={color} size={26} />

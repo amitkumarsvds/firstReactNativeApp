@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 //import Constants from 'expo-constants';
 // create a component
 
@@ -44,7 +45,7 @@ class home extends Component {
         onPress={() => this.onPressItem(item)}>
         <View style={styles.item}>
           <Image
-            style={{width: 100, height: 100, borderRadius: 100 / 2}}
+            style={{width: 60, height: 60, borderRadius: 60 / 2}}
             source={{uri: item.image}}></Image>
 
           <View style={{flex: 1, flexDirection: 'column'}}>
@@ -53,7 +54,7 @@ class home extends Component {
             </View>
 
             <View style={{marginLeft: 20, marginTop: 10}}>
-              <Text style={{fontSize: 25, color: 'grey'}}>{item.age}</Text>
+              <Text style={{fontSize: 20, color: 'grey'}}>{item.age}</Text>
             </View>
           </View>
         </View>
@@ -63,14 +64,46 @@ class home extends Component {
 
   render() {
     // Access the postId and otherParam via Destructuring assignment
-   // const {itemId, otherParam} = this.props.route.params;
+    // const {itemId, otherParam} = this.props.route.params;
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView>
+    
         <FlatList
+          style={styles.container}
+          data={this.state.datasouce}
+          renderItem={this.renderItem}
+          horizontal={true}
+          keyExtractor={(item) => item.age}
+        />
+
+        <Text style={styles.textHeadingStyle}>First Name</Text>
+        <Text style={styles.textStyle}>Amit</Text>
+        <Text style={styles.textHeadingStyle}>Last Name</Text>
+        <Text style={styles.textStyle}>Kumar</Text>
+        <Text style={styles.textHeadingStyle}>Email</Text>
+        <Text style={styles.textStyle}>Amit.kumarsvds@gmail.com</Text>
+
+        <TouchableOpacity
+          style={styles.touchable}
+          onPress={() => {
+            this.props.navigation.navigate(
+              'Homedetail' ,{
+            itemId: 'POJO'
+          },
+            );
+          }}>
+          <Text style={{color: 'white', fontSize: 25}}> Detail Page</Text>
+        </TouchableOpacity>
+        <Text style={styles.textHeadingStyle}>Gender</Text>
+        <Text style={styles.textStyle}>Male</Text>
+
+        <FlatList
+          style={styles.container}
           data={this.state.datasouce}
           renderItem={this.renderItem}
           keyExtractor={(item) => item.age}
         />
+        
       </SafeAreaView>
     );
   }
@@ -78,6 +111,17 @@ class home extends Component {
 
 // define your styles
 const styles = StyleSheet.create({
+  touchable: {
+    backgroundColor: 'red',
+    margin: 20,
+    height: 42,
+    width: '40%',
+    alignSelf: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 40,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -85,7 +129,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   container: {
-    flex: 1,
+    flex: 0,
+    height: '20%',
     marginTop: 10,
   },
   item: {
@@ -97,7 +142,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   title: {
-    fontSize: 32,
+    fontSize: 20,
+  },
+  viewstyle: {
+    height: '100%',
+    width: '100%',
+    backgroundColor: '#FFFFFF',
+  },
+  textHeadingStyle: {
+    padding: 10,
+    marginTop: 5,
+    color: '#D83B13',
+    backgroundColor: '#d3d3d3',
+    fontSize: 20,
+  },
+  textStyle: {
+    padding: 10,
+    fontSize: 20,
   },
 });
 
