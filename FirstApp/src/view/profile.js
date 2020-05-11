@@ -23,7 +23,9 @@ class Profile extends Component {
         this.setState({loading: false});
         this.setState({datasouce: resjson.profile});
       })
-      .catch((error) => console.warn('Error in fetching data ' + error));
+      .catch((error) => {
+        this.setState({loading: false});
+        console.warn('Error in fetching data ' + error)});
   }
 
   render() {

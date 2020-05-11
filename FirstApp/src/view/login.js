@@ -12,7 +12,14 @@ class login extends Component {
   };
 
   loginBtnClick = () => {
-    const {email, password} = this.state;
+
+    this.props.navigation.navigate(
+      'Drawer' /**{
+      itemId: name[0],
+      otherParam: 'anything you want here',
+    }**/,
+    );
+    /**const {email, password} = this.state;
     if (email.length == 0) {
       alert('Enter username');
     } else if (password.length == 0) {
@@ -22,7 +29,7 @@ class login extends Component {
       this.callApi().catch(function () {
         console.warn('For Dev:: Error in connecting API');
       });
-    }
+    }**/
   };
 
   async callApi() {
